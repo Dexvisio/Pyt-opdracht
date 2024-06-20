@@ -105,7 +105,7 @@ while True:
         # asking to input the carbrand which user wanna delete the new model
         model = input("Voer het model naam die u " f"{automerk} wilt verwijderen:")
         # asking to delete the car model to the brand that user choosed
-        if model in x[automerk]:
+        if automerk in x and model in x[automerk]:
             #under the case if the model is already in the list.
             x[automerk].remove(model)
             #remove the model from the list   
@@ -114,6 +114,15 @@ while True:
             print(" ")
             # empty line, ready friendly in the terminal
             break
+        elif automerk in x and model not in x[automerk]:
+            #if the carbrand isnt in the car list.
+            print(f"{automerk} is in de lijst, maar {model} niet in {automerk} ")
+            #print the carbrand is not in the list.
+            print("Nogweer invoeren op de menu.")
+            # print asking again with menu.
+            print(" ")
+            # empty line, ready friendly in the terminal
+            break   
         elif automerk not in x:
             #if the carbrand isnt in the car list.
             print(f"{automerk} is niet in de lijst.")
@@ -122,7 +131,7 @@ while True:
             # print asking again with menu.
             print(" ")
             # empty line, ready friendly in the terminal
-            break   
+            break
         
     if keuze == "5":
         print(x)
